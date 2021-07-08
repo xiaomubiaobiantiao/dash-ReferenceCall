@@ -13,6 +13,7 @@ LastEditors: michael
 # import uvicorn
 from fastapi import FastAPI
 from routers import User
+from routers import Fund
 
 from starlette.middleware.cors import CORSMiddleware
 
@@ -54,3 +55,5 @@ app.add_middleware(
 # 用户路由
 app.include_router(User.router)
 
+# 基金路由
+app.include_router(Fund.router)

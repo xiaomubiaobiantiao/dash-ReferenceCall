@@ -11,6 +11,7 @@ LastEditors: michael
 # 加载自己创建的包
 from views.Base import *
 from views.JwtOperation import jwtOperation
+from views.Fund import fund
 from config.log_config import logger
 
 # 用户登陆后的返回信息类 - 返回登陆后的首页信息 lp/gp
@@ -21,7 +22,7 @@ class LoginInfo:
     password = ''   '''后面可能去掉 password 这个字段'''
 
     # 返回登陆后的首页信息 lp/gp
-    async def returnLoginInfo(self, account, password):
+    async def returnLoginInfo(self, account='', password=''):
 
         self.account = account
         self.password = password
@@ -48,10 +49,14 @@ class LoginInfo:
         if await self.updateLoginNum() is False:
             return {'code':206, 'message':'更新登陆次数失败'}
 
-        userInfo = await self.returnUserInfo(user_info)
+        user_info = await self.returnUserInfo(user_info)
+        fund_list = await fund.fundList(user_info['uid'])
         data = {
             'code': 200,
-            'data': userInfo
+            'data': {
+                'uses_info': user_info,
+                'fund_list': fund_list
+            }
         }
 
         return data
@@ -72,7 +77,7 @@ class LoginInfo:
 
     # 组织返回用户信息数据结构 - S
     async def returnUserInfo(self, user_info):
-        
+
         num = int(user_info['login_num']) + 1
 
         # 生成 jwt 

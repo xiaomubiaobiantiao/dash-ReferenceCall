@@ -24,7 +24,7 @@ class UserRegister:
     user_name = ''
 
     # 返回登陆后的首页信息 lp/gp
-    async def returnUserRegister(self, account, password, email, fund_type, fund_name, company_address, user_name):
+    async def returnUserRegister(self, account='', password='', email='', fund_type='', fund_name='', company_address='', user_name=''):
 
         self.account = account
         self.password = password
