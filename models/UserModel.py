@@ -1,8 +1,8 @@
 '''
 @Description:
 @Author: michael
-@Date: 2020-12-21 14:17:20
-LastEditTime: 2020-12-21 20:00:00
+@Date: 2021-07-08 10:16:20
+LastEditTime: 2021-07-08 20:00:00
 LastEditors: michael
 '''
 
@@ -25,7 +25,6 @@ class UserRegisterModel(BaseModel):
 
 # 用户登陆验证模型
 class UserLoginModel(BaseModel):
-    # account: EmailStr
-    account: str
+    account: EmailStr
     password: str
 

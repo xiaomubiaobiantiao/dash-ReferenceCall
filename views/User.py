@@ -1,16 +1,16 @@
 '''
 @Description:
 @Author: michael
-@Date: 2020-12-18 16:48:20
-LastEditTime: 2021-05-19 16:29:11
-LastEditors: fanshaoqiang
+@Date: 2021-07-08 10:16:20
+LastEditTime: 2021-07-08 20:00:00
+LastEditors: michael
 '''
 # coding=utf-8
 
 # 加载自己创建的包
 
 from views.user_api.UserRegister import userRegister
-# from views.user_api.LoginInfo import loginInfo
+from views.user_api.LoginInfo import loginInfo
 
 
 
@@ -32,9 +32,9 @@ class User:
         )
 
 
-    # 返回登陆后的首页信息 lp/gp
-    # async def loginInfo(self, account, password):
-    #     return await loginInfo.returnLoginInfo(account, password)
+    # 返回登陆后的首页信息
+    async def loginInfo(self, account, password):
+        return await loginInfo.returnLoginInfo(account, password)
 
     
 

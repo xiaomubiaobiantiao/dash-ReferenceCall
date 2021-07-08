@@ -1,9 +1,9 @@
 '''
 @Description:
 @Author: michael
-@Date: 2021-04-26 11:27:20
-LastEditTime: 2021-05-19 16:18:47
-LastEditors: fanshaoqiang
+@Date: 2021-07-08 10:16:20
+LastEditTime: 2021-07-08 20:00:00
+LastEditors: michael
 '''
 # coding=utf-8
 
@@ -56,7 +56,7 @@ class UserRegister:
     async def isUser(self):
 
         # 连接数据库
-        dbo.resetInitConfig('db', 'users')
+        dbo.resetInitConfig('referencecall', 'users')
 
         # 条件 - 用户名 - 返回字段 全部
         condition = {'account': self.account}
@@ -74,7 +74,7 @@ class UserRegister:
     async def isFund(self):
 
         # 连接数据库
-        dbo.resetInitConfig('db', 'users')
+        dbo.resetInitConfig('referencecall', 'users')
 
         # 条件 - 查找 基金公司名称 fund_name 和 有管理权限 is_admin 的用户 - 返回字段 全部
         condition = {'fund_name': self.fund_name}
@@ -91,13 +91,13 @@ class UserRegister:
     async def addUser(self):
 
         # 获取自增 ID
-        get_id_result = await dbo.getNextIdtoUpdate('users', db='db')
+        get_id_result = await dbo.getNextIdtoUpdate('users', db='referencecall')
         if get_id_result['action'] == False:
             logger.info('获取 id 自增失败')
             return False
 
         # 连接数据库集合
-        dbo.resetInitConfig('db', 'users')
+        dbo.resetInitConfig('referencecall', 'users')
 
         document = {
             'id': get_id_result['update_id'],
