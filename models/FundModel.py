@@ -16,4 +16,9 @@ class FundListModel(BaseModel):
     uid: str
 
 
+# 基金列表验证模型
+class FundDetailsModel(BaseModel):
+    uid: str
+    company_id: str
+
 
