@@ -26,7 +26,7 @@ class FundDetails:
         # 验证是否有此公司
         company_info = await base.verifyFundCompany(company_id)
         if company_info is False:
-            return {'code': 201, 'message': '无效的公司 id'}
+            return {'code': 202, 'message': '无效的公司 id'}
 
         return company_info
 

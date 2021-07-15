@@ -14,6 +14,7 @@ LastEditors: michael
 from fastapi import FastAPI
 from routers import User
 from routers import Fund
+from routers import ReferenceCall
 
 from starlette.middleware.cors import CORSMiddleware
 
@@ -57,3 +58,6 @@ app.include_router(User.router)
 
 # 基金路由
 app.include_router(Fund.router)
+
+# Reference Call 路由
+app.include_router(ReferenceCall.router)

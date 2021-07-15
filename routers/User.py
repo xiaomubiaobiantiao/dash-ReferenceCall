@@ -1,19 +1,19 @@
 '''
 @Description:
 @Author: michael
-@Date: 2020-12-09 19:48:20
-LastEditTime: 2020-12-11 20:00:00
+@Date: 2020-07-08 10:10:20
+LastEditTime: 2020-07-08 20:00:00
 LastEditors: michael
 '''
 # coding=utf-8
 
 # 第三方包
 from fastapi import APIRouter
-from models.UserModel import UserRegisterModel
-from models.UserModel import UserLoginModel
 
 # 自己创建的包
 from views.User import user
+from models.UserModel import UserRegisterModel
+from models.UserModel import UserLoginModel
 
 # 创建 APIRouter 实例
 router = APIRouter()
